@@ -1,0 +1,6 @@
+.svn
+.DS_Store
+sftp-config.json
+node_modules
+deploy.log
+npm-debug.log
