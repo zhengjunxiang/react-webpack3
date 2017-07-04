@@ -1,21 +1,27 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import AppRouter from './routers/AppRouter';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import Main from './script/Main';
+
+injectTapEventPlugin();
 
 const Render = (Component) => {
   render(
     <AppContainer>
-      <Component />
+      <MuiThemeProvider>
+        <Component />
+      </MuiThemeProvider>
     </AppContainer>,
     document.getElementById('root')
   );
 };
 
-Render(AppRouter);
+Render(Main);
 // 模块热替换的 API
 if (module.hot) {
-  module.hot.accept('./routers/AppRouter', () => {
-    Render(AppRouter);
+  module.hot.accept('./script/Main', () => {
+    Render(Main);
   });
 }

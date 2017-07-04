@@ -4,9 +4,10 @@ import {
   Route,
   NavLink
 } from 'react-router-dom';
+import Drawer from 'material-ui/Drawer';
 // import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import * as components from '../components/';
-import routes from './sideRoutes';
+import routes from '../routes/sideRoutes';
 import '../style/App.less';
 import '../style/index.less';
 
@@ -15,23 +16,31 @@ const AppRouter = () => (
     <Route
       render={({location}) => (
         <div className="container">
-          <div className="sideBar">
-            <ul>
-              {
-                routes.map(item => (
-                  <li key={item.sideBar}>
-                    <NavLink
-                      exact
-                      to={item.path}
-                      activeStyle={{
-                        fontWeight: 'bold',
-                        color: 'red'
-                      }}
-                      >{item.sideBar}</NavLink></li>
-                ))
-              }
-            </ul>
-          </div>
+          <Drawer
+            containerStyle={{
+              position: 'relative',
+              width: '100%'
+            }}
+            className="Drawer"
+            >
+            <div className="sideBar">
+              <ul>
+                {
+                  routes.map(item => (
+                    <li key={item.sideBar}>
+                      <NavLink
+                        exact
+                        to={item.path}
+                        activeStyle={{
+                          fontWeight: 'bold',
+                          color: 'red'
+                        }}
+                        >{item.sideBar}</NavLink></li>
+                  ))
+                }
+              </ul>
+            </div>
+          </Drawer>
 
           <div className="viewCon">
             <div key={location.pathname}>

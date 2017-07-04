@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Link} from 'react-router-dom';
-import topicRoutes from '../routers/topicRoutes';
+import topicRoutes from '../routes/topicRoutes';
 import Topic from './Topic';
 
 const Topics = ({match}) => (

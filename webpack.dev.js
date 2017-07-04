@@ -35,7 +35,8 @@ const config = function(env) {
       open: true,
       stats: {errors: true, errorDetails: true, warnings: false, chunks: false},
       publicPath: "/",
-      overlay: {warnings: true, errors: true}
+      overlay: {warnings: true, errors: true},
+      openPage: ''
     }
   })
 }

@@ -76,7 +76,8 @@ const config = {
       name: 'manifest'
     }),
     new HtmlWebpackPlugin({title: 'My Webpack2', filename: 'index.html', template: 'src/index.html'}),
-    ExtractLess
+    ExtractLess,
+    new Webpack.optimize.ModuleConcatenationPlugin()
   ]
 }
 
