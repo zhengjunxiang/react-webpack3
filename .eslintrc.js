@@ -1,8 +1,6 @@
 module.exports = {
   'parser': 'babel-eslint',
-
   'extends': 'airbnb',
-
   'env': {
     'browser': true,
     'commonjs': true,
@@ -17,8 +15,7 @@ module.exports = {
 
   'rules': {
     'strict': 'off',
-
-    'indent': ['error', 2, {'SwitchCase': 1}],
+    'indent': 'off',
     'array-bracket-spacing': ['error', 'never'],
     'block-spacing': ['error', 'never'],
     'comma-dangle': ['error', 'never'],
@@ -28,6 +25,7 @@ module.exports = {
     'id-length': 'off',
     'quotes': ['warn', 'single' ],
     'jsx-quotes': ['error', 'prefer-double'],
+    'jsx-a11y/href-no-hash': 'off',
     'linebreak-style': ['warn', 'unix'],
     'new-cap': ['error', {'newIsCap': true, 'capIsNew': false}],
     'no-case-declarations': 'error',
@@ -36,6 +34,7 @@ module.exports = {
     'no-console': ['warn', {
       allow: ['info', 'warn', 'error']
     }],
+    'import/no-extraneous-dependencies': 0,
     'no-empty-pattern': 'error',
     'no-dupe-class-members': 'error',
     'no-nested-ternary': 'off',

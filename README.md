@@ -1,2 +1,2 @@
-# react-webpack3
-react-webpack3 initial configuration
+# react-webpack2
+react-webpack2 initial configuration

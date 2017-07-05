@@ -1,25 +1,11 @@
-import React from 'react';
-import HomeL from 'bundle-loader?lazy!./Home';
-import AboutL from 'bundle-loader?lazy!./About';
-import TopicsL from 'bundle-loader?lazy!./Topics';
-import Bundle from './bundle';
+import asyncComponent from './AsyncComponent';
 
-const Home = () => (
-  <Bundle load={HomeL}>
-    {HomeLo => <HomeLo />}
-  </Bundle>
-);
+// import Home from './Home';
+// import About from './About';
+// import Topics from './Topics';
 
-const About = () => (
-  <Bundle load={AboutL}>
-    {AboutLo => <AboutLo />}
-  </Bundle>
-);
-
-const Topics = (location) => (
-  <Bundle load={TopicsL}>
-    {TopicsLo => <TopicsLo match={location.match} />}
-  </Bundle>
-);
+const Home = asyncComponent(() => import('./Home'));
+const About = asyncComponent(() => import('./About'));
+const Topics = asyncComponent(() => import('./Topics'));
 
 export {Home, About, Topics};

@@ -8,6 +8,9 @@ const CommonConfig = require('./webpack.com.js');
 
 const config = function(env) {
   return Merge(CommonConfig, {
+    stats: {
+      errors: true, errorDetails: true, warnings: false, chunks: false
+    },
     plugins: [
       new Webpack.LoaderOptionsPlugin({
         minimize: true,
@@ -18,7 +21,7 @@ const config = function(env) {
       }),
       new Webpack.optimize.UglifyJsPlugin({
         beautify: false,
-        compress: process.env.NODE_ENV === JSON.stringify('production'),
+        compress: true,
         comments: false
       }),
       new Webpack.NoEmitOnErrorsPlugin(),

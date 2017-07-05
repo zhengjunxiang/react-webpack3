@@ -5,7 +5,7 @@ import Topic from './Topic';
 
 const Topics = ({match}) => (
   <div>
-    <h2>Topics</h2>
+    <h2>Topicsas</h2>
     <ul>
       {
         topicRoutes.map(item => (
@@ -23,7 +23,7 @@ const Topics = ({match}) => (
       exact
       path={match.url}
       render={() => (
-        <h3>Please select a topic.</h3>
+        <h3>Please select a topicas.</h3>
       )}
       />
   </div>

@@ -10,6 +10,7 @@ import * as components from '../components/';
 import routes from '../routes/sideRoutes';
 import '../style/App.less';
 import '../style/index.less';
+import '../style/fonts.less';
 
 const AppRouter = () => (
   <Router>

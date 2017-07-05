@@ -1,8 +1,8 @@
 /*eslint-disable*/
 const Path = require('path');
 const Webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 根据NODE_ENV来启用
 const ExtractLess = new ExtractTextPlugin({
   filename: "style/style.[contenthash:8].css",
@@ -20,9 +20,14 @@ const config = {
     publicPath: "/"
   },
   resolve: {
+    modules: [Path.resolve(__dirname, 'node_modules')],
+    alias: {
+      'moment': 'moment/min/moment.min.js'
+    },
     extensions: ['.js', '.jsx']
   },
   module: {
+    noParse: /node_modules\/(jquey|moment|chart\.js)/,
     rules: [
       {
         test: /\.css/,
@@ -59,6 +64,10 @@ const config = {
             }
           }
         ]
+      }, {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        exclude: /node_modules/,
+        use: ['url-loader?limit=30000&name=[name].[ext]&outputPath=fonts/']
       }
     ]
   },
@@ -75,9 +84,8 @@ const config = {
       // 由于它们之间没有更常见的模块，我们最终只会包含在清单文件中的运行时代码
       name: 'manifest'
     }),
-    new HtmlWebpackPlugin({title: 'My Webpack2', filename: 'index.html', template: 'src/index.html'}),
-    ExtractLess,
-    new Webpack.optimize.ModuleConcatenationPlugin()
+    new HtmlWebpackPlugin({title: 'My Webpack3', filename: 'index.html', template: 'src/index.html'}),
+    ExtractLess
   ]
 }
 

@@ -27,14 +27,19 @@ const config = function(env) {
       new Webpack.HotModuleReplacementPlugin(),
       // 开启全局的模块热替换(HMR)
       new Webpack.HashedModuleIdsPlugin(),
+      new Webpack.DefinePlugin({
+        'process.env': {'NODE_ENV': JSON.stringify('development')}
+      })
     ],
     devServer: {
       hot: true,
       port: PORT,
       host: 'localhost',
       open: true,
+      historyApiFallback: true,
       stats: {errors: true, errorDetails: true, warnings: false, chunks: false},
       publicPath: "/",
+      contentBase: Path.resolve(__dirname, 'dist'),
       overlay: {warnings: true, errors: true},
       openPage: ''
     }
