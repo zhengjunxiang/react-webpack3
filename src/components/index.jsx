@@ -4,8 +4,8 @@ import asyncComponent from './AsyncComponent';
 // import About from './About';
 // import Topics from './Topics';
 
-const Home = asyncComponent(() => import('./Home'));
-const About = asyncComponent(() => import('./About'));
-const Topics = asyncComponent(() => import('./Topics'));
+const Home = asyncComponent(() => System.import('./Home'));
+const About = asyncComponent(() => System.import('./About'));
+const Topics = asyncComponent(() => System.import('./Topics'));
 
 export {Home, About, Topics};

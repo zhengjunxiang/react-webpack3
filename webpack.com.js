@@ -1,8 +1,12 @@
 /*eslint-disable*/
+const os = require('os');
 const Path = require('path');
 const Webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 // 根据NODE_ENV来启用
 const ExtractLess = new ExtractTextPlugin({
   filename: "style/style.[contenthash:8].css",
@@ -33,37 +37,23 @@ const config = {
         test: /\.css/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: [
-            {loader: "css-loader"}
-          ]
+          use: Path.resolve(__dirname, './node_modules', 'happypack/loader') + '?id=css'
         })
       }, {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [
-            {loader: "css-loader"},
-            {loader: "less-loader"}
+            Path.resolve(__dirname, './node_modules', 'happypack/loader') + '?id=less',
           ]
         })
       }, {
         test: /\.jsx?$/,
-        use: ['babel-loader'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: ['happypack/loader?id=happybabel']
       }, {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [
-          'url-loader?limit=10000&name=[name].[ext]&outputPath=images/', {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {quality: 65},
-              pngquant: {quality: '65-90', speed: 4},
-              svgo: {
-                plugins: [{removeViewBox: false}, {removeEmptyAttrs: false}]
-              }
-            }
-          }
-        ]
+        use: ['url-loader?limit=10000&name=[name].[ext]&outputPath=images/']
       }, {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         exclude: /node_modules/,
@@ -85,7 +75,22 @@ const config = {
       name: 'manifest'
     }),
     new HtmlWebpackPlugin({title: 'My Webpack3', filename: 'index.html', template: 'src/index.html'}),
-    ExtractLess
+    ExtractLess,
+    new HappyPack({
+      id: 'happybabel',
+      loaders: ['babel-loader?cacheDirectory=true'],
+      threadPool: happyThreadPool
+    }),
+    new HappyPack({
+      id: 'less',
+      loaders: ['css-loader!less-loader'],
+      threadPool: happyThreadPool
+    }),
+    new HappyPack({
+      id: 'css',
+      loaders: ['css-loader?mportLoaders=1'],
+      threadPool: happyThreadPool
+    })
   ]
 }
 

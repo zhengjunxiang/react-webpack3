@@ -1,31 +1,34 @@
-module.exports = {
+{
   'parser': 'babel-eslint',
   'extends': 'airbnb',
-  'env': {
-    'browser': true,
-    'commonjs': true,
-    'es6': true,
-    'node': true,
-    'jquery': true
-  },
-
+  "plugins": [
+    'react'
+  ],
   'parserOptions': {
     'sourceType': 'module'
   },
-
+  "settings": {
+    "import/extensions": [
+      ".js", ".jsx"
+    ],
+    "import/ignore": [
+      "./Home"
+    ]
+  },
   'rules': {
     'strict': 'off',
-    'indent': 'off',
+    'class-methods-use-this': 'off',
+    'indent': ['error', 2, {'SwitchCase': 1}],
     'array-bracket-spacing': ['error', 'never'],
     'block-spacing': ['error', 'never'],
     'comma-dangle': ['error', 'never'],
     'computed-property-spacing': ['error', 'never'],
     'constructor-super': 'error',
+    'consistent-return': 'off',
     'func-names': 'off',
     'id-length': 'off',
     'quotes': ['warn', 'single' ],
     'jsx-quotes': ['error', 'prefer-double'],
-    'jsx-a11y/href-no-hash': 'off',
     'linebreak-style': ['warn', 'unix'],
     'new-cap': ['error', {'newIsCap': true, 'capIsNew': false}],
     'no-case-declarations': 'error',
@@ -34,7 +37,6 @@ module.exports = {
     'no-console': ['warn', {
       allow: ['info', 'warn', 'error']
     }],
-    'import/no-extraneous-dependencies': 0,
     'no-empty-pattern': 'error',
     'no-dupe-class-members': 'error',
     'no-nested-ternary': 'off',
@@ -58,18 +60,15 @@ module.exports = {
     'space-in-parens': ['error', 'never'],
     'vars-on-top': 'off',
     'max-len': ['warn', 150],
-
     'key-spacing': ['warn', {
       'beforeColon': false,
       'afterColon': true
     }],
-
     'react/jsx-closing-bracket-location': ['warn', 'props-aligned'],
     'react/jsx-curly-spacing': ['error', 'never'],
     'react/jsx-handler-names': ['warn', {
       'eventHandlerPrefix': 'handle|toggle'
     }],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     'react/jsx-indent-props': ['error', 2],
     'react/jsx-no-duplicate-props': 'error',
     'react/jsx-quotes': 'off',
@@ -78,6 +77,9 @@ module.exports = {
     'react/no-multi-comp': ['error', {'ignoreStateless': true}],
     'react/prefer-es6-class': 'warn',
     'react/prop-types': 'off',
-    'react/sort-comp': 'off'
+    'react/sort-comp': 'off',
+    'react/jsx-first-prop-new-line': 'off',
+    'jsx-a11y/label-has-for': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off'
   }
-};
+}
