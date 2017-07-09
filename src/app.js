@@ -5,9 +5,10 @@ import {AppContainer} from 'react-hot-loader';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Main from './script/Main';
+import './common/pace';
+import './common/pace.css';
 
 injectTapEventPlugin();
-
 const Render = (Component) => {
   render(
     <AppContainer>
