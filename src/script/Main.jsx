@@ -1,22 +1,21 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
+import {Layout} from 'antd';
 import AppRouter from './AppRouter';
 
-// import Loadable from 'react-loadable';
-// import LoadingComponent from '../components/LoadingComponent';
+import src from '../images/logo.png';
 
-// const AppRouter = Loadable({
-//   loader: () => import('./AppRouter'),
-//   LoadingComponent,
-//   delay: 300
-// });
+const {Header} = Layout;
 
 export default () => (
   <div className="root">
-    <AppBar
-      title="Movies"
-      iconClassNameRight="muidocs-icon-navigation-expand-more"
-      />
+    <Layout>
+      <Header className="header">
+        <span className="logo">
+          <img src={src} alt="蚂蚁矿尺" />
+        </span>
+        <h3 className="title">My App</h3>
+      </Header>
+    </Layout>
     <AppRouter />
   </div>
 );

@@ -5,16 +5,13 @@
     "react"
   ],
   "plugins": [
-    ["import-inspector", {
-      "serverSideRequirePath": true,
-      "webpackRequireWeakId": true,
-    }],
     "react-hot-loader/babel",
     "syntax-async-functions",
     "syntax-dynamic-import",
     "transform-async-to-generator",
     "transform-regenerator",
     "transform-runtime",
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    ["import", { "libraryName": "antd", "style": "css" }]
   ]
 }

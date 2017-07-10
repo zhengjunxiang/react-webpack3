@@ -1,28 +1,28 @@
-.webpack-logo {
-  width: 200px;
-  height: 200px;
-  background: url('../images/webpacklogo.svg') center center no-repeat;
-}
-.container {
-  width: 100%;
-  background: #f6f6f6;
-  position: relative;
+#root {
   height: 100%;
-  overflow: hidden;
-  .Drawer {
-    width: 20%;
-    float: left;
-    height: 100%;
-    display: inline-block;
-  }
-  .sideBar {
-    a {
-      color: #333333;
+}
+.root {
+  height: 100%;
+  .header {
+    .logo {
+      height: 100%;
+      display: inline-block;
+      margin-right: 20px;
+      img {
+        width: 100px;
+      }
+    }
+    .title {
+      color: #ffffff;
+      display: inline-block;
     }
   }
-  .viewCon {
+  .container-router {
     height: 100%;
-    width: 79%;
-    float: right;
+  }
+  .webpack-logo {
+    width: 200px;
+    height: 200px;
+    background: url('../images/webpacklogo.svg') center center no-repeat;
   }
 }

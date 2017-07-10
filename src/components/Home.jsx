@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
-import RaisedButton from 'material-ui/RaisedButton';
+import {Button} from 'antd';
 
 const url = require('../images/grid.png');
 
@@ -22,7 +22,7 @@ class Home extends Component {
       return '点击发送请求';
     } else if (state === 1) {
       return '正在请求';
-    } else if (state === 2 && data != null) {
+    } else if (state === 2 && data !== null) {
       return (data);
     } else if (state === -1) {
       return '请求出错';
@@ -35,8 +35,10 @@ class Home extends Component {
         <h2>Home</h2>
         <div className="webpack-logo" />
         <img src={url} alt="" />
-        <RaisedButton label="fetchData" primary onClick={this.handleClick} />
-        <h3>{this.renderResult()}</h3>
+        <div>
+          <Button type="primary" onClick={this.handleClick}>fetchData</Button>
+          <p>{this.renderResult()}</p>
+        </div>
       </div>
     );
   }

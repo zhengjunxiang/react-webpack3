@@ -1,17 +1,7 @@
 import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
-import RaisedButton from 'material-ui/RaisedButton';
-import DevTools from 'mobx-react-devtools';
+import {Button} from 'antd';
 import AboutCom from './AboutCom';
-
-// import Loadable from 'react-loadable';
-// import LoadingComponent from './LoadingComponent';
-
-// const LoadableMyComponent = Loadable({
-//   loader: () => import('./AboutCom'),
-//   LoadingComponent,
-//   delay: 300
-// });
 
 @inject('about') @observer
 class About extends Component {
@@ -35,10 +25,8 @@ class About extends Component {
           <i className="el-icon-caret-bottom" />
           Aboutas
         </h2>
-        <RaisedButton label="Primary" primary onClick={this.handleClick} />
-        {/* {this.state.showCom && <LoadableMyComponent />} */
-          this.state.showCom && <AboutCom name="james" />
-        }
+        <Button type="primary" onClick={this.handleClick}>Primary</Button>
+        {this.state.showCom && <AboutCom name="james" />}
         <input
           type="text"
           onChange={(e) => {
@@ -46,7 +34,6 @@ class About extends Component {
           }}
           />
         <p>{name}</p>
-        <DevTools />
       </div>
     );
   }

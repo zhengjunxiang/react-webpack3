@@ -4,55 +4,42 @@ import {
   Route,
   NavLink
 } from 'react-router-dom';
-import Drawer from 'material-ui/Drawer';
-// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import {Layout, Menu, Icon} from 'antd';
 import * as components from '../components/';
 import routes from '../routes/sideRoutes';
-import '../style/App.less';
-import '../style/index.less';
-import '../style/fonts.less';
+
+const {Content, Sider} = Layout;
 
 const AppRouter = () => (
   <Router>
     <Route
       render={({location}) => (
-        <div className="container">
-          <Drawer
-            containerStyle={{
-              position: 'relative',
-              width: '100%'
-            }}
-            className="Drawer"
-            >
-            <div className="sideBar">
-              <ul>
-                {
-                  routes.map(item => (
-                    <li key={item.sideBar}>
-                      <NavLink
-                        exact
-                        to={item.path}
-                        activeStyle={{
-                          fontWeight: 'bold',
-                          color: 'red'
-                        }}
-                        >{item.sideBar}</NavLink></li>
-                  ))
-                }
-              </ul>
-            </div>
-          </Drawer>
-
-          <div className="viewCon">
-            <div key={location.pathname}>
+        <Layout className="container-router">
+          <Sider width={200} style={{background: '#fff'}}>
+            <Menu mode="inline" style={{height: '100%'}}>
+              {routes.map(item => (
+                <Menu.Item key={item.sideBar}>
+                  <NavLink
+                    exact
+                    to={item.path}
+                    activeStyle={{
+                      color: '#108ee9'
+                    }}
+                    ><Icon type={item.icon} />{item.sideBar}</NavLink>
+                </Menu.Item>
+              ))}
+            </Menu>
+          </Sider>
+          <Layout>
+            <Content style={{padding: 24, margin: 0, minHeight: 280}} key={location.pathname}>
               {
                 routes.map(item => (
                   <Route location={location} key={item.component} exact={item.exact} path={item.path} component={components[item.component]} />
                 ))
               }
-            </div>
-          </div>
-        </div>
+            </Content>
+          </Layout>
+        </Layout>
       )}
       />
   </Router>

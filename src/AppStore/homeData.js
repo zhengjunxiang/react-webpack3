@@ -18,8 +18,10 @@ class FetchDataStore {
         })
       ).catch(
         action('fetchOperate_error', (err) => {
-          this.data = typeof err === 'object' ? JSON.stringify(err) : err;
-          this.state = -1;
+          window.setTimeout(() => {
+            this.data = typeof err === 'object' ? JSON.stringify(err) : err;
+            this.state = -1;
+          }, 2000);
         })
       );
   }
