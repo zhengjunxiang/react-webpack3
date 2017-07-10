@@ -23,7 +23,7 @@ const Topics = ({match}) => (
       exact
       path={match.url}
       render={() => (
-        <h3>Please select a topicas.</h3>
+        <h3>Please select a topic.</h3>
       )}
       />
   </div>

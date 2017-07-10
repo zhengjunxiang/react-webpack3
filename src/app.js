@@ -8,9 +8,10 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import {Provider} from 'mobx-react';
 import store from './AppStore';
 import Main from './script/Main';
+import './common/pace';
+import './common/pace.css';
 
 injectTapEventPlugin();
-
 const Render = (Component) => {
   render(
     <AppContainer>
