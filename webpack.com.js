@@ -82,7 +82,8 @@ const config = {
     //CommonChunksPlugin will now extract all the common modules from vendor and main bundles
     new Webpack.optimize.CommonsChunkPlugin({
       // 由于它们之间没有更常见的模块，我们最终只会包含在清单文件中的运行时代码
-      name: 'manifest'
+      name: 'manifest',
+      filename: 'manifest.js'
     }),
     new HtmlWebpackPlugin({title: 'My Webpack3', filename: 'index.html', template: 'src/index.html'}),
     ExtractLess

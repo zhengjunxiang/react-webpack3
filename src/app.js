@@ -1,9 +1,12 @@
 import 'babel-polyfill';
+import 'whatwg-fetch';
 import React from 'react';
 import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import {Provider} from 'mobx-react';
+import store from './AppStore';
 import Main from './script/Main';
 
 injectTapEventPlugin();
@@ -12,7 +15,9 @@ const Render = (Component) => {
   render(
     <AppContainer>
       <MuiThemeProvider>
-        <Component />
+        <Provider {...store}>
+          <Component />
+        </Provider>
       </MuiThemeProvider>
     </AppContainer>,
     document.getElementById('root')

@@ -1,4 +1,4 @@
-module.exports = {
+{
   'parser': 'babel-eslint',
   'extends': 'airbnb',
   'env': {
@@ -80,4 +80,4 @@ module.exports = {
     'react/prop-types': 'off',
     'react/sort-comp': 'off'
   }
-};
+}
