@@ -77,6 +77,7 @@ const config = {
     }),
     new HtmlWebpackPlugin({title: 'My Webpack3', filename: 'index.html', template: 'src/index.html'}),
     ExtractLess,
+    new Webpack.optimize.ModuleConcatenationPlugin(),
     new HappyPack({
       id: 'happybabel',
       loaders: ['babel-loader?cacheDirectory=true'],

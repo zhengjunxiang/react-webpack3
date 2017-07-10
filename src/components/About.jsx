@@ -25,7 +25,7 @@ class About extends Component {
           <i className="el-icon-caret-bottom" />
           Aboutas
         </h2>
-        <Button type="primary" onClick={this.handleClick}>Primary</Button>
+        <div><Button type="primary" onClick={this.handleClick}>Click, 显示名称</Button></div>
         {this.state.showCom && <AboutCom name="james" />}
         <input
           type="text"

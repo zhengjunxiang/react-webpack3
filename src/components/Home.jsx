@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
 import {Button} from 'antd';
+import QueueAnim from 'rc-queue-anim';
 
 const url = require('../images/grid.png');
 
@@ -32,13 +33,15 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h2>Home</h2>
-        <div className="webpack-logo" />
-        <img src={url} alt="" />
-        <div>
-          <Button type="primary" onClick={this.handleClick}>fetchData</Button>
-          <p>{this.renderResult()}</p>
-        </div>
+        <QueueAnim leaveReverse>
+          <h2>Home</h2>
+          <div className="webpack-logo" />
+          <img src={url} alt="" />
+          <div>
+            <Button type="primary" onClick={this.handleClick}>fetchData</Button>
+            <p>{this.renderResult()}</p>
+          </div>
+        </QueueAnim>
       </div>
     );
   }

@@ -9,8 +9,6 @@ import store from './AppStore';
 import Main from './script/Main';
 
 import './style/index.less';
-import './common/pace';
-import './common/pace.css';
 
 injectTapEventPlugin();
 const Render = (Component) => {
