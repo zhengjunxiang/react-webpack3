@@ -15,16 +15,16 @@ const ExtractLess = new ExtractTextPlugin({
 
 const config = {
   entry: {
-    main: Path.resolve(__dirname, 'src/app.js')
+    main: Path.resolve(__dirname, '../src/app.js')
   },
   output: {
     filename: 'js/[name].[chunkhash:8].js',
-    path: Path.resolve(__dirname, 'dist'),
+    path: Path.resolve(__dirname, '../dist'),
     chunkFilename: "js/[name].[chunkhash:8].js",
     publicPath: "/"
   },
   resolve: {
-    modules: [Path.resolve(__dirname, 'node_modules')],
+    modules: [Path.resolve(__dirname, '../node_modules')],
     alias: {
       'moment': 'moment/min/moment.min.js'
     },
@@ -37,14 +37,14 @@ const config = {
         test: /\.css/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: Path.resolve(__dirname, './node_modules', 'happypack/loader') + '?id=css'
+          use: Path.resolve(__dirname, '../node_modules', 'happypack/loader') + '?id=css'
         })
       }, {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [
-            Path.resolve(__dirname, './node_modules', 'happypack/loader') + '?id=less',
+            Path.resolve(__dirname, '../node_modules', 'happypack/loader') + '?id=less',
           ]
         })
       }, {

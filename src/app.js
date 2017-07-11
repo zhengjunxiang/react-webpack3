@@ -5,7 +5,7 @@ import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {Provider} from 'mobx-react';
-import store from './AppStore';
+import stores from './stores';
 import Main from './script/Main';
 
 import './style/index.less';
@@ -14,7 +14,7 @@ injectTapEventPlugin();
 const Render = (Component) => {
   render(
     <AppContainer>
-        <Provider {...store}>
+        <Provider {...stores}>
           <Component />
         </Provider>
     </AppContainer>,

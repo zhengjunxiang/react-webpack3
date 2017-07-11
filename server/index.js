@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 
+// const DEV = process.env.NODE_ENV === 'development';
+
 const app = express();
 app.use(cors());
 

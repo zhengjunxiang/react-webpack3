@@ -4,12 +4,12 @@
   "description": "react-webapck3",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js --progress",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack.prod.js --progress",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.dev.js --progress",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js --progress",
     "clean": "rimraf ./dist/*",
     "open": "opn http://localhost:8080 && hs dist",
     "prod": "npm run build && npm run open",
-    "serve": "cd ./back && node index.js"
+    "serve": "cd ./server && node index.js"
   },
   "keywords": [
     "react",
